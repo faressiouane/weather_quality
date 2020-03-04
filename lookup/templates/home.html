@@ -7,8 +7,19 @@
 
 <div class="container">
     <h1>Azul Fares!</h1>
+    
+    {{ api.0 }}
+
+    <br> <br>
+
+
+    AQI : {{ api.0.AQI}}
     <br>
-    {{ api }}
+    Reporting Area : {{ api.0.ReportingArea}}
+    <br>
+    Category Name : {{ api.0.Category.Name }}
+
+   
 </div>
 
 {% endblock content %}
