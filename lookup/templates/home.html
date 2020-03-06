@@ -1,26 +1,40 @@
 {% extends 'base.html' %}
 
 
-          
+
 
 {% block content %}
 
 <div class="container">
-    <h1>Azul Fares!</h1>
-    
-    {{ api.0 }}
-
-    <br> <br>
+    <div class="row">
 
 
-    AQI : {{ api.0.AQI}}
-    <br>
-    Reporting Area : {{ api.0.ReportingArea}}
-    <br>
-    Category Name : {{ api.0.Category.Name }}
 
-   
+        <div style="overflow: auto; clear : both;"></div>
+
+        {% if api %}
+
+        {% if api == "Error..." %}
+        Sorry , something went wrong!
+        {% else %}
+
+        <div class="col s12 m6 push-m3">
+            <div class="card-panel teal">
+                <span class="white-text">
+
+                    <h1>{{ api.0.Category.Name }}</h1>
+                    <p>Currrent {{api.0.ReportingArea}} Air Quality is : {{api.0.AQI}}</p>
+
+                </span>
+            </div>
+        </div>
+
+
+        {%endif%}
+        {% endif %}
+
+
+    </div>
 </div>
 
 {% endblock content %}
-
