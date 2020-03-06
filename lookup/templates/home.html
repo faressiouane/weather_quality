@@ -10,7 +10,7 @@
 
 
 
-        <div style="overflow: auto; clear : both;"></div>
+        
 
         {% if api %}
 
@@ -18,12 +18,17 @@
         Sorry , something went wrong!
         {% else %}
 
-        <div class="col s12 m6 push-m3">
-            <div class="card-panel teal">
+        <div class="col s12">
+            <div class="card-panel {{color}}">
                 <span class="white-text">
 
                     <h1>{{ api.0.Category.Name }}</h1>
                     <p>Currrent {{api.0.ReportingArea}} Air Quality is : {{api.0.AQI}}</p>
+
+                    <div class="divider"></div>
+
+                    <p>{{msg}}</p>
+
 
                 </span>
             </div>

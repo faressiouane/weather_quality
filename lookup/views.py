@@ -12,8 +12,34 @@ def home(request):
     except Exception as e:
         api = "Error..."
 
+    if api[0]["Category"]["Name"] == "Good":
+        color = "green"
+        msg = "Air quality is considered satisfactory, and air pollution poses little or no risk."
 
-    return render(request, 'home.html', {'api' : api})
+    elif api[0]["Category"]["Name"] == "Moderate":
+        color = "yelow"
+        msg = "Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution."
+
+    elif api[0]["Category"]["Name"] == "Unhealthy for Sensitive Groups":
+        color = "orange"
+        msg = "Members of sensitive groups may experience health effects. The general public is not likely to be affected. "
+
+    elif api[0]["Category"]["Name"] == "Unhealthy":
+        color = "red"
+        msg = "Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects."
+
+    elif api[0]["Category"]["Name"] == "Very Unhealthy":
+        color = "purple"
+        msg = "Health alert: everyone may experience more serious health effects."
+
+    else:
+        color = "deep-purple darken-4"
+        msg = "Health warnings of emergency conditions. The entire population is more likely to be affected."
+    
+  
+
+
+    return render(request, 'home.html', {'api' : api, 'color' : color, 'msg' : msg})
 
 
 def about(request):
