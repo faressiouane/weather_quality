@@ -5,17 +5,35 @@
       <a href="{% url 'home' %}" class="brand-logo">Weather</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="/search">search</a></li>
+        
+
+        <li>
+        <form method ="POST" action ="{% url 'home' %}">
+        {% csrf_token %}
+        <div class="input-field">
+          <input id="search" type="search" required placeholder ="Enter a ZipCode" name="query">
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+        </form>
+        </li>
+
       </ul>
 
 
 
       <ul class="sidenav" id="mobile-demo">
         <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="/search">search</a></li>
+        <li>
+        <form method ="POST" action ="{% url 'home' %}">
+        {% csrf_token %}
+        <div class="input-field">
+          <input id="search" type="search" required placeholder ="Enter a ZipCode" name="query">
+          <label class="label-icon" for="search"><i class="material-icons green-text">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+        </form>
+        </li>
       </ul>
 
 
